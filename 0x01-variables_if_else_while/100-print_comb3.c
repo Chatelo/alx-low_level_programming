@@ -1,24 +1,29 @@
 #include <stdio.h>
-/**
- * main - program that prints numbers from 0 to 99.
- * Return: 0
- */
 
+/**
+ * main - prints all possible different combinations of two digits
+ * Return: ALways 0 (Success)
+ */
 int main(void)
 {
-	int c = 0;
+	int n, m;
 
-	while (c <= 99)
+	for (n = 48; n <= 56; n++)
 	{
-		putchar(c / 10 + '0');
-		putchar(c % 10 + '0');
-		if (c != 99)
+		for (m = 49; m <= 57; m++)
 		{
-			putchar(',');
-			putchar(' ');
+			if (m > n)
+			{
+				putchar(n);
+				putchar(m);
+				if (n != 56 || m != 57)
+				{
+					putchar(',');
+					putchar(' ');
+				}
+			}
 		}
-		c++;
 	}
-putchar('\n');
-return (0);
+	putchar('\n');
+	return (0);
 }
