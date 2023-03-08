@@ -1,14 +1,15 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * _puts_recursion - puts a string to stdout recursively
+ * _puts_recursion - Prints a string followed by a new line
+ * @s: string
  *
- * @s: string to put to stdout
- *
- * Return: always void
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
  */
 void _puts_recursion(char *s)
 {
-	if (!*s) /* if s points to null char */
+	if (*s == 0)
 	{
 		_putchar('\n');
 		return;
