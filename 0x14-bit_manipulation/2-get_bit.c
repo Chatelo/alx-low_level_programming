@@ -1,18 +1,16 @@
 #include "main.h"
 
 /**
- * set_bit - sets the value of a bit to 1 at a given index
- * @n: pointer to an unsigned long int
- * @index: index of the bit to set, starting from 0
+ * get_bit - Returns the value of a bit at a given index
+ * @n: number to get bit from
+ * @index: index of the bit to get
  *
- * Return: 1 if it worked, or -1 if an error occurred
+ * Return: value of the bit at index index or -1 if an error occurred
  */
-
-int set_bit(unsigned long int *n, unsigned int index)
+int get_bit(unsigned long int n, unsigned int index)
 {
-if (index >= (sizeof(unsigned long int) * 8))
+if (index > (sizeof(n) * 8 - 1))
 return (-1);
 
-*n = *n | (1 << index);
-return (1);
+return ((n >> index) & 1);
 }
