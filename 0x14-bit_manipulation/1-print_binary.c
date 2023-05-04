@@ -3,10 +3,10 @@
 
 
 /**
- * print_binary - prints the binary representation of a number
- * @n: the number to be represented in binary
+ * print_binary - prints the binary representation of a num
+ * @n: the number to be represented in binary.
  *
- * Return: void
+ * Return: void.
  */
 void print_binary(unsigned long int n)
 {
