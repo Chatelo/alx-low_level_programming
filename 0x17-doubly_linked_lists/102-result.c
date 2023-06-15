@@ -1,27 +1,39 @@
 #include <stdio.h>
 
-int is_palindrome(int n) 
-{
-int rev = 0;
-int temp = n;
-while (temp != 0) {
-rev = rev * 10 + temp % 10;
-temp /= 10;
-}
-return n == rev;
+int isPalindrome(int number) {
+    int reversed = 0;
+    int temp = number;
+
+    while (temp > 0) {
+        reversed = reversed * 10 + temp % 10;
+        temp /= 10;
+    }
+
+    return (reversed == number);
 }
 
 int main() {
-int i, j;
-int largest = 0;
-for (i = 100; i < 1000; i++) {
-for (j = i; j < 1000; j++) {
-int product = i * j;
-if (is_palindrome(product) && product > largest) {
-largest = product;
+    int largestPalindrome = 0;
+
+    for (int i = 999; i >= 100; i--) {
+        for (int j = 999; j >= 100; j--) {
+            int product = i * j;
+            if (isPalindrome(product) && product > largestPalindrome) {
+                largestPalindrome = product;
+            }
+        }
+    }
+
+    // Save the result in the file
+    FILE *file = fopen("102-result", "w");
+    if (file != NULL) {
+        fprintf(file, "%d", largestPalindrome);
+        fclose(file);
+        printf("Result saved in the file '102-result'.\n");
+    } else {
+        printf("Unable to open the file for writing.\n");
+    }
+
+    return 0;
 }
-}
-}
-printf("%d", largest);
-return 0;
-}
+
