@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int is_palindrome(int n) {
+int is_palindrome(int n) 
+{
 int rev = 0;
 int temp = n;
 while (temp != 0) {
